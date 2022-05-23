@@ -1,0 +1,5 @@
+{"name":"ququruququ","company":"palomaaaaa","stages":[],"_id":"PkGMdZAXZBZ2xqNb"}
+{"name":"ququruququ","company":"palomaaaaa","stages":[{"date":"12","amount":"500"}],"_id":"PkGMdZAXZBZ2xqNb"}
+{"name":"ququruququ","company":"palomaaaaa","stages":[{"date":"12","amount":"500"},{"date":"14","amount":"700"}],"_id":"PkGMdZAXZBZ2xqNb"}
+{"name":"ququruququ","company":"palomaaaaa","stages":[{"date":"12","amount":"500"},{"date":"14","amount":"700"},{"date":"13","amount":"600"}],"_id":"PkGMdZAXZBZ2xqNb"}
+{"name":"ququruququ","company":"palomaaaaa","stages":[{"date":"12","amount":"500"},{"date":"14","amount":"700"},{"date":"13","amount":"600"}],"_id":"PkGMdZAXZBZ2xqNb","stats":{"total":1800,"companyTotal":"1080.00","companyTaxable":"981.82","companyTaxes":"98.18"}}
