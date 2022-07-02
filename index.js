@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-let database = require('./database');
-let Show = require('./Show');
-let Stage = require('./Stage');
-let AccountingSheet = require('./AccountingSheet');
+let database = require('./Database/database');
+let Show = require('./Entities/Show');
+let Stage = require('./Entities/Stage');
+let AccountingSheet = require('./Services/AccountingSheet');
 app.use(cors({
     origin: "*"
 }));
@@ -46,6 +46,16 @@ app.get(`/api/:showid/stages/calculateOutcomes`,(request, response) => {
         });
     });
 });
+
+app.get(`/api/shows/getAll`,(request, response) => {
+    database.find({}, function (err, docs) {
+        console.log(docs);
+        response.json({
+            status:'success',
+            details: docs
+        })
+      });
+})
 
 
 
