@@ -3,6 +3,7 @@ class Show {
         this.name = name;
         this.company = company;
         this.stages = [];
+        this.siae = 0;
     }
 };
 

@@ -4,16 +4,19 @@ const cors = require('cors');
 let database = require('./Database/database');
 let Show = require('./Entities/Show');
 let Stage = require('./Entities/Stage');
-let AccountingSheet = require('./Services/AccountingSheet');
+let ShowService = require('./Services/ShowService');
+let port = process.env.PORT || 3000;
 app.use(cors({
     origin: "*"
 }));
-app.listen(3000, ()=> {
+app.listen(port, ()=> {
     console.log('listening')
 });
 app.use(express.json());
 database.loadDatabase();
 
+
+//controllers
 app.post('/api/insert-show',(request, response) => {
     let showDetails = request.body;
     database.insert(new Show(showDetails.title, showDetails.company), function(err, newDoc){
@@ -35,9 +38,19 @@ app.post(`/api/:showid/insert-stage`,(request, response) => {
         })   
 });
 
+app.post(`/api/:showid/insert-siae`,(request, response) => {
+    let siae = request.body;
+    database.update({_id: request.params.showid}, {$set: {siae: siae.amount}} ,{},function(err, docs){
+        response.json({
+            status:'success'
+        });
+    });    
+});
+
+
 app.get(`/api/:showid/stages/calculateOutcomes`,(request, response) => {
     database.findOne({_id: request.params.showid}, function (err, docs) {
-        let stats = (new AccountingSheet(docs.stages));
+        let stats = (new ShowService(docs.stages));
         database.update({_id: request.params.showid}, {$set:{"stats":stats.outcome}}, function (err, docs) {
             response.json({
                 status:'success',

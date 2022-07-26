@@ -1,4 +1,4 @@
-class AccountingSheet{
+class ShowService{
     constructor(datas){
         this.datas = datas;
         this.outcome = {};
@@ -28,4 +28,4 @@ class AccountingSheet{
     };
 };
 
-module.exports = AccountingSheet;
+module.exports = ShowService;
